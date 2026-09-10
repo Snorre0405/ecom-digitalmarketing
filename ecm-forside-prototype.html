@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-commerce & Digital Marketing (ECM) — Erhvervsakademi København</title>
+<meta name="description" content="E-commerce og Digital Marketing (ECM) er en fuldtidsuddannelse på Erhvervsakademi København for dig, der vil forstå og bygge digital forretning — fra webshop til kampagne til konvertering.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ===================== TOKENS ===================== */
+  :root{
+    --bg: #F5F4EF;
+    --surface: #FFFFFF;
+    --ink: #14151A;
+    --ink-soft: #55565E;
+    --ink-faint: #8B8C93;
+    --line: rgba(20,21,26,0.14);
+    --line-soft: rgba(20,21,26,0.08);
+    --accent: #FF4433;      /* signal / conversion red */
+    --accent-ink: #FFFFFF;
+    --accent-2: #FFC83D;    /* tag / highlight yellow */
+    --accent-2-ink: #14151A;
+    --focus: #2A5DFF;
+
+    --font-display: 'Space Grotesk', 'Inter', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+
+    --container: 1240px;
+    --gutter: clamp(20px, 5vw, 64px);
+    --radius-s: 3px;
+    --radius-m: 10px;
+
+    --dur: 0.5s;
+    --ease: cubic-bezier(.2,.7,.2,1);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+  }
+
+  *,*::before,*::after{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  img,svg{ display:block; max-width:100%; }
+  a{ color: inherit; }
+  ul{ margin:0; padding:0; list-style:none; }
+  h1,h2,h3,h4{ font-family: var(--font-display); margin:0; line-height:1.05; font-weight:600; }
+  p{ margin:0; }
+  button{ font-family: inherit; cursor:pointer; }
+
+  :focus-visible{
+    outline: 3px solid var(--focus);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .wrap{
+    max-width: var(--container);
+    margin: 0 auto;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+  }
+
+  section{ padding: clamp(64px, 9vw, 128px) 0; }
+  .section-tight{ padding-top: clamp(40px,6vw,72px); }
+
+  .eyebrow-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:.5em;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.01em;
+    color: var(--ink-soft);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 0.4em 0.8em;
+    border-radius: 999px;
+  }
+  .eyebrow-tag .dot{ width:6px; height:6px; border-radius:50%; background: var(--accent); flex:none; }
+
+  .h2{
+    font-size: clamp(1.9rem, 3.6vw, 3rem);
+    letter-spacing: -0.01em;
+  }
+  .h2 + .lede{ margin-top: 18px; }
+  .lede{
+    font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+    color: var(--ink-soft);
+    max-width: 640px;
+  }
+  .section-head{ max-width: 760px; }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:.55em;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.98rem;
+    padding: 0.95em 1.6em;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    text-decoration:none;
+    transition: transform var(--dur) var(--ease), background var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+    white-space: nowrap;
+  }
+  .btn-primary{ background: var(--ink); color: var(--bg); }
+  .btn-primary:hover{ background: var(--accent); color: var(--accent-ink); }
+  .btn-ghost{ background: transparent; color: var(--ink); border-color: var(--line); }
+  .btn-ghost:hover{ border-color: var(--ink); }
+  .btn-on-dark{ background: var(--accent-2); color: var(--accent-2-ink); }
+  .btn-on-dark:hover{ background: var(--bg); }
+  .btn:active{ transform: scale(0.97); }
+
+  /* ===================== NAV ===================== */
+  header{
+    position: sticky; top:0; z-index: 100;
+    background: rgba(245,244,239,0.86);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 16px var(--gutter);
+    max-width: var(--container); margin:0 auto;
+  }
+  .wordmark{ display:flex; flex-direction:column; text-decoration:none; color:var(--ink); line-height:1; }
+  .wordmark strong{ font-family: var(--font-display); font-size: 1.35rem; letter-spacing:-0.02em; }
+  .wordmark span{ font-family: var(--font-mono); font-size: 0.62rem; color: var(--ink-soft); margin-top:3px; letter-spacing:0.01em; }
+  .nav-links{ display:flex; align-items:center; gap: 34px; }
+  .nav-links a{ text-decoration:none; font-size: 0.95rem; font-weight:500; color: var(--ink-soft); position:relative; padding: 4px 0; }
+  .nav-links a:hover{ color: var(--ink); }
+  .nav-links a::after{ content:''; position:absolute; left:0; right:100%; bottom:0; height:2px; background:var(--accent); transition: right var(--dur) var(--ease); }
+  .nav-links a:hover::after{ right:0; }
+  .nav-cta{ display:flex; align-items:center; gap:18px; }
+  .burger{ display:none; background:none; border:none; padding:8px; }
+  .burger span{ display:block; width:22px; height:2px; background:var(--ink); margin:5px 0; transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease); }
+  .burger.is-open span:nth-child(1){ transform: translateY(7px) rotate(45deg); }
+  .burger.is-open span:nth-child(2){ opacity:0; }
+  .burger.is-open span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-panel{
+    display:none;
+    position: fixed; inset: 69px 0 0 0; z-index: 99;
+    background: var(--bg);
+    padding: 24px var(--gutter) 40px;
+    overflow-y:auto;
+  }
+  .mobile-panel.is-open{ display:block; }
+  .mobile-panel a{ display:block; text-decoration:none; color: var(--ink); font-family: var(--font-display); font-size: 1.7rem; padding: 14px 0; border-bottom:1px solid var(--line-soft); }
+  .mobile-panel .btn{ margin-top: 24px; width:100%; }
+
+  @media (max-width: 880px){
+    .nav-links{ display:none; }
+    .nav-cta .btn-ghost{ display:none; }
+    .burger{ display:block; }
+  }
+
+  /* ===================== HERO ===================== */
+  .hero{ padding-top: clamp(48px, 8vw, 88px); padding-bottom: clamp(56px,8vw,96px); overflow:hidden; }
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: clamp(24px, 5vw, 56px);
+    align-items:center;
+  }
+  .hero-badge{
+    display:inline-flex; align-items:center; gap:8px;
+    background: var(--accent-2); color: var(--accent-2-ink);
+    font-family: var(--font-mono); font-size: 0.75rem;
+    padding: 6px 12px 6px 10px; border-radius: 999px;
+    transform: rotate(-2deg);
+    margin-bottom: 26px;
+  }
+  .hero h1{
+    font-size: clamp(2.5rem, 6vw, 4.6rem);
+    letter-spacing: -0.02em;
+  }
+  .hero h1 em{ font-style:normal; color: var(--accent); }
+  .hero .lede{ margin-top: 24px; max-width: 520px; }
+  .hero-actions{ display:flex; flex-wrap:wrap; gap: 14px; margin-top: 36px; }
+  .hero-meta{
+    display:flex; gap: 28px; margin-top: 48px; flex-wrap:wrap;
+  }
+  .hero-meta div{ font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-soft); }
+  .hero-meta strong{ display:block; font-family: var(--font-display); font-size: 1.05rem; color: var(--ink); margin-bottom:2px; }
+
+  /* Hero visual: stacked interface cards */
+  .hero-visual{ position:relative; height: clamp(340px, 42vw, 520px); }
+  .float-card{
+    position:absolute; background: var(--surface); border:1px solid var(--line);
+    border-radius: var(--radius-m); box-shadow: 0 24px 48px -20px rgba(20,21,26,0.22);
+    padding: 16px; animation: drift 9s var(--ease) infinite;
+  }
+  @keyframes drift{
+    0%,100%{ transform: translateY(0px); }
+    50%{ transform: translateY(-10px); }
+  }
+  .card-browser{ top:0; left:4%; width: 66%; animation-delay:0s; }
+  .card-browser .bar{ display:flex; gap:6px; margin-bottom:12px; }
+  .card-browser .bar span{ width:8px; height:8px; border-radius:50%; background:var(--line); }
+  .card-browser .url{ font-family:var(--font-mono); font-size:0.7rem; color:var(--ink-faint); border:1px solid var(--line-soft); border-radius:6px; padding:4px 8px; margin-bottom:10px; }
+  .card-browser .fake-bars{ display:flex; flex-direction:column; gap:8px; }
+  .card-browser .fake-bars i{ display:block; height:9px; background: var(--line-soft); border-radius:3px; }
+  .card-browser .fake-bars i:nth-child(1){ width:80%; }
+  .card-browser .fake-bars i:nth-child(2){ width:55%; background: var(--accent-2); opacity:.7; }
+  .card-browser .fake-bars i:nth-child(3){ width:65%; }
+
+  .card-chart{ bottom:6%; left:0; width:46%; animation-delay:1.4s; }
+  .card-chart svg{ width:100%; height:auto; }
+
+  .card-tag{ top:8%; right:0; width:44%; animation-delay:0.6s; text-align:left; }
+  .card-tag .tag-hole{ width:14px; height:14px; border-radius:50%; background:var(--bg); border:1px solid var(--line); position:absolute; top:14px; right:14px; }
+  .card-tag .label{ font-family:var(--font-mono); font-size:0.68rem; color:var(--ink-faint); }
+  .card-tag .value{ font-family:var(--font-display); font-size:1.5rem; margin-top:4px; }
+
+  .card-feed{ bottom:0; right:4%; width:40%; animation-delay:2.1s; }
+  .card-feed .row{ display:flex; align-items:center; gap:8px; padding:6px 0; border-bottom:1px solid var(--line-soft); }
+  .card-feed .row:last-child{ border:none; }
+  .card-feed .dot{ width:20px;height:20px;border-radius:50%; background: var(--accent); flex:none; }
+  .card-feed .dot.alt{ background: var(--accent-2); }
+  .card-feed i{ display:block; height:7px; background:var(--line-soft); border-radius:3px; width:70%; }
+
+  @media (max-width: 900px){
+    .hero-grid{ grid-template-columns: 1fr; }
+    .hero-visual{ height: 320px; margin-top: 8px; }
+  }
+
+  /* ===================== MARQUEE ===================== */
+  .marquee-band{
+    background: var(--ink); color: var(--bg);
+    padding: 18px 0; overflow:hidden; white-space:nowrap;
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  }
+  .marquee-track{ display:inline-flex; gap: 48px; animation: scroll-left 32s linear infinite; }
+  .marquee-track span{ font-family: var(--font-mono); font-size:0.85rem; letter-spacing:0.02em; color: rgba(245,244,239,0.75); display:inline-flex; align-items:center; gap:12px; }
+  .marquee-track span::before{ content:'—'; color: var(--accent-2); }
+  @keyframes scroll-left{ from{ transform: translateX(0); } to{ transform: translateX(-50%); } }
+
+  /* ===================== WHAT IS ECM ===================== */
+  .ingredient-row{
+    display:grid; grid-template-columns: repeat(5, 1fr);
+    gap: 14px; margin-top: 48px;
+  }
+  .ingredient{
+    background: var(--surface); border:1px solid var(--line); border-radius: var(--radius-m);
+    padding: 22px 18px; text-align:left; position:relative;
+    transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+  }
+  .ingredient .num{ font-family: var(--font-mono); font-size:0.72rem; color: var(--ink-faint); }
+  .ingredient h4{ font-size: 1.05rem; margin-top: 10px; }
+  .ingredient p{ font-size: 0.88rem; color: var(--ink-soft); margin-top:8px; }
+  .ingredient:hover{ border-color: var(--ink); transform: translateY(-4px); }
+  .ingredient-plus{ text-align:center; align-self:center; font-family:var(--font-display); font-size:1.6rem; color: var(--ink-faint); display:flex; align-items:center; justify-content:center; }
+  @media (max-width: 980px){
+    .ingredient-row{ grid-template-columns: 1fr 1fr; }
+    .ingredient-plus{ display:none; }
+  }
+  @media (max-width: 560px){ .ingredient-row{ grid-template-columns: 1fr; } }
+
+  /* ===================== YOU ALREADY KNOW THIS ===================== */
+  .known-section{ background: var(--ink); color: var(--bg); }
+  .known-section .lede{ color: rgba(245,244,239,0.68); }
+  .flip-grid{
+    display:grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 44px;
+  }
+  .flip-card{
+    background: rgba(245,244,239,0.05);
+    border: 1px solid rgba(245,244,239,0.18);
+    border-radius: var(--radius-m);
+    padding: 26px 22px; min-height: 168px;
+    display:flex; flex-direction:column; justify-content:space-between;
+    text-align:left; width:100%;
+    transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease);
+  }
+  .flip-card:hover, .flip-card.is-active{ background: rgba(245,244,239,0.1); border-color: var(--accent-2); }
+  .flip-card .known-label{ font-family: var(--font-display); font-size: 1.3rem; }
+  .flip-card .behind{
+    font-size: 0.9rem; color: rgba(245,244,239,0.6); margin-top: 14px;
+    max-height:0; overflow:hidden; opacity:0; transition: max-height var(--dur) var(--ease), opacity var(--dur) var(--ease);
+  }
+  .flip-card.is-active .behind{ max-height: 140px; opacity:1; margin-top:14px; }
+  .flip-card .hint{ font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent-2); margin-top:14px; }
+  .flip-card.is-active .hint{ display:none; }
+  @media (max-width: 880px){ .flip-grid{ grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px){ .flip-grid{ grid-template-columns: 1fr; } }
+
+  /* ===================== COMPETENCIES ===================== */
+  .comp-grid{ display:grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 48px; background: var(--line); border:1px solid var(--line); }
+  .comp-cell{
+    background: var(--surface); padding: 26px 22px; min-height: 190px;
+    display:flex; flex-direction:column; justify-content:space-between; text-align:left;
+    transition: background var(--dur) var(--ease);
+  }
+  .comp-cell:hover, .comp-cell.is-active{ background: #FDF3EC; }
+  .comp-cell h4{ font-size: 1.12rem; }
+  .comp-cell .more{ font-size: 0.86rem; color: var(--ink-soft); max-height:0; overflow:hidden; opacity:0; transition: max-height var(--dur) var(--ease), opacity var(--dur) var(--ease); }
+  .comp-cell.is-active .more{ max-height:160px; opacity:1; margin-top:10px; }
+  .comp-cell .toggle-row{ display:flex; align-items:center; justify-content:space-between; margin-top:16px; }
+  .comp-cell .plus{ font-family:var(--font-mono); font-size:1rem; color:var(--ink-faint); transition: transform var(--dur) var(--ease); }
+  .comp-cell.is-active .plus{ transform: rotate(45deg); }
+  @media (max-width: 980px){ .comp-grid{ grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px){ .comp-grid{ grid-template-columns: 1fr; } }
+  .note-inline{ margin-top: 22px; font-size: 0.86rem; color: var(--ink-faint); font-family: var(--font-mono); }
+
+  /* ===================== FIT SECTION ===================== */
+  .fit-section{ background: var(--surface); border-top:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft); }
+  .fit-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: clamp(24px,5vw,72px); align-items:start; margin-top: 20px;}
+  .fit-list{ display:flex; flex-direction:column; gap: 2px; margin-top: 20px; }
+  .fit-item{ display:flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line-soft); }
+  .fit-item .mark{ flex:none; width:26px; height:26px; border-radius:50%; background: var(--accent-2); color: var(--accent-2-ink); display:flex; align-items:center; justify-content:center; font-size:0.9rem; font-weight:700; margin-top:2px; }
+  .fit-item p{ font-size: 1.02rem; }
+  .fit-note{ background: var(--bg); border: 1px dashed var(--line); border-radius: var(--radius-m); padding: 22px; font-size: 0.92rem; color: var(--ink-soft); }
+  @media (max-width: 880px){ .fit-grid{ grid-template-columns:1fr; } }
+
+  /* ===================== A DAY AT ECM ===================== */
+  .day-wrap{ display:grid; grid-template-columns: 260px 1fr; gap: clamp(24px,4vw,56px); margin-top: 44px; }
+  .day-side{ position:sticky; top: 110px; align-self:start; }
+  .day-side .badge-full{ display:inline-block; font-family: var(--font-mono); font-size:0.75rem; background: var(--ink); color: var(--bg); padding: 8px 12px; border-radius: var(--radius-s); margin-bottom:14px; }
+  .day-side p{ color: var(--ink-soft); font-size:0.92rem; }
+  .timeline{ display:flex; flex-direction:column; }
+  .t-row{ display:grid; grid-template-columns: 90px 1fr; gap: 20px; padding: 22px 0; border-top: 1px solid var(--line-soft); cursor:pointer; }
+  .t-row:last-child{ border-bottom: 1px solid var(--line-soft); }
+  .t-time{ font-family: var(--font-mono); color: var(--ink-faint); font-size:0.9rem; padding-top:2px; }
+  .t-title{ font-family: var(--font-display); font-size: 1.15rem; }
+  .t-desc{ font-size:0.92rem; color: var(--ink-soft); max-height:0; overflow:hidden; opacity:0; transition: max-height var(--dur) var(--ease), opacity var(--dur) var(--ease); }
+  .t-row.is-active .t-desc{ max-height: 100px; opacity:1; margin-top:10px; }
+  @media (max-width: 880px){ .day-wrap{ grid-template-columns: 1fr; } .day-side{ position:static; } }
+
+  /* ===================== PROCESS ===================== */
+  .process-strip{ display:flex; overflow-x:auto; gap: 0; margin-top: 48px; padding-bottom: 8px; }
+  .process-step{ flex: 0 0 auto; width: 210px; padding: 24px 22px 24px 0; position:relative; }
+  .process-step:not(:last-child)::after{ content:'→'; position:absolute; right:-4px; top:24px; color: var(--ink-faint); font-family: var(--font-mono); }
+  .process-step .step-label{ font-family: var(--font-mono); font-size:0.72rem; color: var(--accent); }
+  .process-step h4{ font-size:1.15rem; margin-top:8px; }
+  .process-step p{ font-size:0.86rem; color:var(--ink-soft); margin-top:8px; }
+
+  /* ===================== CASES ===================== */
+  .case-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 48px; }
+  .case-card{
+    background: var(--surface); border:1px solid var(--line); border-radius: var(--radius-m);
+    padding: 28px; position:relative; overflow:hidden;
+  }
+  .case-card::before{ content:''; position:absolute; top:18px; right:18px; width:12px; height:12px; border-radius:50%; border:1px solid var(--line); background: var(--bg); }
+  .case-card .case-id{ font-family: var(--font-mono); font-size:0.75rem; color: var(--ink-faint); }
+  .case-card h4{ font-size: 1.3rem; margin-top:8px; }
+  .case-flow{ display:flex; gap:10px; flex-wrap:wrap; margin-top:18px; }
+  .case-flow span{ font-family: var(--font-mono); font-size:0.72rem; background: var(--bg); border:1px solid var(--line-soft); padding:4px 9px; border-radius:999px; color: var(--ink-soft); }
+  .case-card .placeholder-note{ margin-top:16px; font-size:0.82rem; color: var(--ink-faint); font-style:italic; }
+  @media (max-width: 780px){ .case-grid{ grid-template-columns:1fr; } }
+
+  /* ===================== STUDIELIV ===================== */
+  .life-grid{ display:grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 48px; }
+  .life-tile{ aspect-ratio: 3/4; border-radius: var(--radius-m); background: linear-gradient(160deg, #fff 0%, var(--bg) 100%); border:1px solid var(--line); display:flex; flex-direction:column; justify-content:flex-end; padding:16px; position:relative; overflow:hidden; }
+  .life-tile:nth-child(2){ grid-row: span 2; aspect-ratio:auto; }
+  .life-tile .ph-icon{ position:absolute; top:16px; left:16px; font-family:var(--font-mono); font-size:0.68rem; color:var(--ink-faint); border:1px solid var(--line-soft); padding:3px 8px; border-radius:999px; }
+  .life-tile span{ font-family: var(--font-display); font-size:1.05rem; }
+  @media (max-width: 900px){ .life-grid{ grid-template-columns: 1fr 1fr; } .life-tile:nth-child(2){ grid-row:auto; aspect-ratio:3/4; } }
+
+  /* ===================== SOCIAL PROOF ===================== */
+  .proof-grid{ display:grid; grid-template-columns: 1.2fr 0.8fr; gap: 20px; margin-top: 48px; }
+  .quote-card{ background: var(--surface); border:1px solid var(--line); border-radius: var(--radius-m); padding: 36px; display:flex; flex-direction:column; justify-content:space-between; min-height:220px; }
+  .quote-card p.quote{ font-family: var(--font-display); font-size: 1.35rem; line-height:1.35; color: var(--ink); }
+  .quote-card .who{ margin-top: 22px; font-family: var(--font-mono); font-size:0.8rem; color: var(--ink-faint); }
+  .video-card{ background: var(--ink); color: var(--bg); border-radius: var(--radius-m); padding:28px; display:flex; flex-direction:column; justify-content:space-between; min-height:220px; }
+  .video-card .play{ width:52px; height:52px; border-radius:50%; background: var(--accent-2); display:flex; align-items:center; justify-content:center; color: var(--accent-2-ink); font-size:1.1rem; }
+  .video-card .cap{ font-family: var(--font-mono); font-size:0.78rem; color: rgba(245,244,239,0.6); }
+  @media (max-width: 880px){ .proof-grid{ grid-template-columns:1fr; } }
+
+  /* ===================== CAREER ===================== */
+  .career-grid{ display:grid; grid-template-columns: repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:44px; }
+  .career-cell{ background: var(--surface); padding: 22px 18px; font-family: var(--font-display); font-size:1.02rem; display:flex; align-items:center; min-height:88px; }
+  @media (max-width: 900px){ .career-grid{ grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px){ .career-grid{ grid-template-columns: 1fr; } }
+  .career-disclaimer{ margin-top:26px; font-size:0.86rem; color: var(--ink-faint); max-width:600px; }
+
+  /* ===================== FAQ ===================== */
+  .faq-list{ margin-top: 40px; border-top: 1px solid var(--line); }
+  .faq-item{ border-bottom: 1px solid var(--line); }
+  .faq-q{
+    width:100%; background:none; border:none; text-align:left; padding: 22px 4px;
+    display:flex; align-items:center; justify-content:space-between; gap: 20px;
+    font-family: var(--font-display); font-size: 1.08rem; color: var(--ink);
+  }
+  .faq-q .plus{ font-family: var(--font-mono); flex:none; color: var(--ink-faint); font-size:1.2rem; transition: transform var(--dur) var(--ease); }
+  .faq-item.is-open .plus{ transform: rotate(45deg); }
+  .faq-a{ max-height:0; overflow:hidden; opacity:0; transition: max-height var(--dur) var(--ease), opacity var(--dur) var(--ease); }
+  .faq-item.is-open .faq-a{ max-height: 220px; opacity:1; }
+  .faq-a p{ padding: 0 4px 26px; color: var(--ink-soft); max-width: 640px; }
+  .faq-a p.verify{ font-family: var(--font-mono); font-size:0.8rem; color: var(--accent); }
+
+  /* ===================== FINAL CTA ===================== */
+  .final-cta{ background: var(--ink); color: var(--bg); text-align:center; }
+  .final-cta h2{ font-size: clamp(2.2rem, 5vw, 3.6rem); max-width: 780px; margin: 0 auto; letter-spacing:-0.01em; }
+  .final-cta .lede{ color: rgba(245,244,239,0.68); margin: 22px auto 0; }
+  .final-cta .hero-actions{ justify-content:center; margin-top:38px; }
+
+  /* ===================== FOOTER ===================== */
+  footer{ padding: 56px 0 40px; }
+  .foot-grid{ display:grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 32px; }
+  .foot-grid h5{ font-family: var(--font-mono); font-size:0.75rem; color: var(--ink-faint); margin-bottom:14px; }
+  .foot-grid a{ display:block; text-decoration:none; color: var(--ink-soft); font-size:0.92rem; padding: 5px 0; }
+  .foot-grid a:hover{ color: var(--ink); }
+  .foot-bottom{ margin-top:48px; padding-top:24px; border-top:1px solid var(--line-soft); display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; font-family: var(--font-mono); font-size:0.75rem; color: var(--ink-faint); }
+  @media (max-width: 780px){ .foot-grid{ grid-template-columns: 1fr 1fr; } }
+
+  .skip-link{ position:absolute; left:-999px; top:0; background:var(--ink); color:var(--bg); padding:12px 18px; z-index:200; }
+  .skip-link:focus{ left: 16px; top:16px; }
+
+  .reveal{ opacity:0; transform: translateY(18px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+  .reveal.is-visible{ opacity:1; transform:none; }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Spring til indhold</a>
+
+<header>
+  <nav class="nav" aria-label="Hovednavigation">
+    <a href="#top" class="wordmark">
+      <strong>ECM</strong>
+      <span>E-commerce &amp; Digital Marketing</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#hvad-er-ecm">Uddannelsen</a></li>
+      <li><a href="#det-laerer-du">Fag</a></li>
+      <li><a href="#studieliv">Studieliv</a></li>
+      <li><a href="#cases">Cases</a></li>
+      <li><a href="#karriere">Karriere</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#ansoegning" class="btn btn-ghost">Søg ind</a>
+      <button class="burger" id="burgerBtn" aria-expanded="false" aria-controls="mobilePanel" aria-label="Åbn menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-panel" id="mobilePanel">
+    <a href="#hvad-er-ecm">Uddannelsen</a>
+    <a href="#det-laerer-du">Fag</a>
+    <a href="#studieliv">Studieliv</a>
+    <a href="#cases">Cases</a>
+    <a href="#karriere">Karriere</a>
+    <a href="#faq">FAQ</a>
+    <a href="#ansoegning" class="btn btn-primary">Søg ind</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="hero-badge">Ny uddannelse på EK · København</span>
+        <h1>Det du allerede følger med i,<br>kan du lære at <em>bygge</em>.</h1>
+        <p class="lede">E-commerce &amp; Digital Marketing (ECM) er en fuldtidsuddannelse i at forstå, designe og drive digital forretning — fra webshop og kampagne til data og konvertering.</p>
+        <div class="hero-actions">
+          <a href="#hvad-er-ecm" class="btn btn-primary">Udforsk uddannelsen</a>
+          <a href="#ansoegning" class="btn btn-ghost">Søg ind</a>
+        </div>
+        <div class="hero-meta">
+          <div><strong>Fuldtid</strong>ca. 37 timer/uge</div>
+          <div><strong>København</strong>Erhvervsakademi København</div>
+          <div><strong>Optag</strong>[INDSÆT OFFICIEL INFORMATION]</div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="float-card card-browser">
+          <div class="bar"><span></span><span></span><span></span></div>
+          <div class="url">dinbutik.dk/kampagne</div>
+          <div class="fake-bars"><i></i><i></i><i></i></div>
+        </div>
+        <div class="float-card card-tag">
+          <div class="tag-hole"></div>
+          <div class="label">KONVERTERING</div>
+          <div class="value">+18%</div>
+        </div>
+        <div class="float-card card-chart">
+          <svg viewBox="0 0 160 70" preserveAspectRatio="none">
+            <polyline points="0,60 25,45 50,50 75,25 100,32 125,10 160,18" fill="none" stroke="#FF4433" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="float-card card-feed">
+          <div class="row"><div class="dot"></div><i></i></div>
+          <div class="row"><div class="dot alt"></div><i></i></div>
+          <div class="row"><div class="dot"></div><i></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee-band" aria-hidden="true">
+    <div class="marquee-track">
+      <span>TikTok</span><span>Instagram</span><span>Webshops</span><span>SEO</span><span>Data</span><span>Brands</span><span>Content</span><span>Shopify</span><span>Konvertering</span><span>Performance marketing</span>
+      <span>TikTok</span><span>Instagram</span><span>Webshops</span><span>SEO</span><span>Data</span><span>Brands</span><span>Content</span><span>Shopify</span><span>Konvertering</span><span>Performance marketing</span>
+    </div>
+  </div>
+
+  <!-- ===================== HVAD ER ECM ===================== -->
+  <section id="hvad-er-ecm">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow-tag"><span class="dot"></span>Hvad er ECM?</span>
+        <h2 class="h2" style="margin-top:20px;">Én uddannelse. Fem discipliner, der arbejder sammen.</h2>
+        <p class="lede">De fleste uddannelser vælger enten det kreative eller det analytiske spor. ECM samler det, der reelt hænger sammen bag enhver digital forretning.</p>
+      </div>
+      <div class="ingredient-row reveal">
+        <div class="ingredient"><span class="num">01</span><h4>Marketing</h4><p>Kampagner, kanaler og målgrupper — hvordan du bliver fundet og valgt.</p></div>
+        <div class="ingredient-plus">+</div>
+        <div class="ingredient"><span class="num">02</span><h4>E-commerce</h4><p>Webshops, produkter og kundens rejse fra klik til køb.</p></div>
+        <div class="ingredient-plus">+</div>
+        <div class="ingredient"><span class="num">03</span><h4>Data</h4><p>Tal, adfærd og beslutninger baseret på det, der faktisk virker.</p></div>
+      </div>
+      <div class="ingredient-row reveal" style="grid-template-columns: 1fr auto 1fr auto 1fr; margin-top:14px;">
+        <div class="ingredient"><span class="num">04</span><h4>Design</h4><p>Websites og oplevelser, der er nemme og rare at bruge.</p></div>
+        <div class="ingredient-plus">+</div>
+        <div class="ingredient"><span class="num">05</span><h4>Digital forretning</h4><p>Strategi og forretningsforståelse, der binder det hele sammen.</p></div>
+        <div class="ingredient-plus" style="visibility:hidden;">+</div>
+        <div class="ingredient" style="background:transparent; border:none; box-shadow:none;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== DU KENDER DET ALLEREDE ===================== -->
+  <section class="known-section" id="du-kender-det">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow-tag" style="background:transparent; border-color:rgba(245,244,239,0.25); color:rgba(245,244,239,0.75);"><span class="dot"></span>Du kender det allerede</span>
+        <h2 class="h2" style="margin-top:20px;">Du bruger det her hver dag. Men hvad sker der bag skærmen?</h2>
+        <p class="lede">Klik på et af begreberne — og se den faglige disciplin, der ligger bag.</p>
+      </div>
+      <div class="flip-grid reveal" id="flipGrid">
+        <button class="flip-card" data-behind="Bag TikTok ligger content-strategi, algoritmeforståelse og evnen til at fange opmærksomhed på sekunder — noget virksomheder betaler for at kunne.">
+          <div class="known-label">TikTok</div>
+          <div class="hint">Klik for at se hvad der ligger bag →</div>
+          <div class="behind">Bag TikTok ligger content-strategi, algoritmeforståelse og evnen til at fange opmærksomhed på sekunder — noget virksomheder betaler for at kunne.</div>
+        </button>
+        <button class="flip-card" data-behind="Bag Instagram ligger brandbygning, community og visuel kommunikation — hvordan en virksomhed fortæller en historie, folk vil følge.">
+          <div class="known-label">Instagram</div>
+          <div class="hint">Klik for at se hvad der ligger bag →</div>
+          <div class="behind">Bag Instagram ligger brandbygning, community og visuel kommunikation — hvordan en virksomhed fortæller en historie, folk vil følge.</div>
+        </button>
+        <button class="flip-card" data-behind="Bag en webshop ligger UX, betalingsflows og konverteringsoptimering — de små beslutninger, der afgør om du gennemfører et køb eller forlader siden.">
+          <div class="known-label">Webshop</div>
+          <div class="hint">Klik for at se hvad der ligger bag →</div>
+          <div class="behind">Bag en webshop ligger UX, betalingsflows og konverteringsoptimering — de små beslutninger, der afgør om du gennemfører et køb eller forlader siden.</div>
+        </button>
+        <button class="flip-card" data-behind="Bag en annonce, du scroller forbi, ligger målgruppeanalyse, budstyring og performance marketing — data, der bestemmer hvem der ser hvad.">
+          <div class="known-label">Annoncer</div>
+          <div class="hint">Klik for at se hvad der ligger bag →</div>
+          <div class="behind">Bag en annonce, du scroller forbi, ligger målgruppeanalyse, budstyring og performance marketing — data, der bestemmer hvem der ser hvad.</div>
+        </button>
+        <button class="flip-card" data-behind="Bag en influencer-kampagne ligger partnerskabsstrategi og målbare KPI'er — hvordan en virksomhed vurderer, om samarbejdet reelt gav værdi.">
+          <div class="known-label">Influencers</div>
+          <div class="hint">Klik for at se hvad der ligger bag →</div>
+          <div class="behind">Bag en influencer-kampagne ligger partnerskabsstrategi og målbare KPI'er — hvordan en virksomhed vurderer, om samarbejdet reelt gav værdi.</div>
+        </button>
+        <button class="flip-card" data-behind="Bag søgeresultatet, hvor en butik dukker op først, ligger SEO og indholdsstrategi — arbejdet med at blive fundet, uden at betale for hvert klik.">
+          <div class="known-label">Google-søgning</div>
+          <div class="hint">Klik for at se hvad der ligger bag →</div>
+          <div class="behind">Bag søgeresultatet, hvor en butik dukker op først, ligger SEO og indholdsstrategi — arbejdet med at blive fundet, uden at betale for hvert klik.</div>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== DET LÆRER DU ===================== -->
+  <section id="det-laerer-du">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow-tag"><span class="dot"></span>Det lærer du</span>
+        <h2 class="h2" style="margin-top:20px;">Otte faglige områder — klik for at folde ud.</h2>
+        <p class="lede">De konkrete fagnavne og moduler fastlægges af Erhvervsakademi København. Her er de faglige områder, uddannelsen bygger på.</p>
+      </div>
+      <div class="comp-grid reveal" id="compGrid">
+        <div class="comp-cell"><div><h4>Digital Marketing</h4></div><div class="more">Kampagnestrategi, kanaler, annoncering og målgruppeforståelse på tværs af platforme.</div><div class="toggle-row"><span></span><span class="plus">+</span></div></div>
+        <div class="comp-cell"><div><h4>E-commerce</h4></div><div class="more">Webshop-opbygning, produktpræsentation og kundens rejse fra besøg til køb.</div><div class="toggle-row"><span></span><span class="plus">+</span></div></div>
+        <div class="comp-cell"><div><h4>Web</h4></div><div class="more">Grundlæggende forståelse af websites, platforme og hvordan digitale løsninger hænger sammen teknisk.</div><div class="toggle-row"><span></span><span class="plus">+</span></div></div>
+        <div class="comp-cell"><div><h4>Design</h4></div><div class="more">Visuel kommunikation og brugeroplevelse — hvordan noget ser godt ud og er nemt at bruge.</div><div class="toggle-row"><span></span><span class="plus">+</span></div></div>
+        <div class="comp-cell"><div><h4>Data</h4></div><div class="more">At læse tal og adfærd, og omsætte dem til beslutninger frem for antagelser.</div><div class="toggle-row"><span></span><span class="plus">+</span></div></div>
+        <div class="comp-cell"><div><h4>SEO</h4></div><div class="more">Hvordan indhold og sider bliver fundet i søgning — organisk, uden annoncebudget.</div><div class="toggle-row"><span></span><span class="plus">+</span></div></div>
+        <div class="comp-cell"><div><h4>Content</h4></div><div class="more">At planlægge og skabe indhold, der passer til kanal, målgruppe og formål.</div><div class="toggle-row"><span></span><span class="plus">+</span></div></div>
+        <div class="comp-cell"><div><h4>Digital forretning</h4></div><div class="more">Forretningsforståelse, strategi og hvordan de andre discipliner spiller sammen i praksis.</div><div class="toggle-row"><span></span><span class="plus">+</span></div></div>
+      </div>
+      <p class="note-inline">[Fagoversigt og ECTS-fordeling tilføjes, når den er offentliggjort af Erhvervsakademi København]</p>
+    </div>
+  </section>
+
+  <!-- ===================== ER ECM NOGET FOR DIG ===================== -->
+  <section class="fit-section" id="er-det-mig">
+    <div class="wrap">
+      <div class="fit-grid">
+        <div class="reveal">
+          <span class="eyebrow-tag"><span class="dot"></span>Er ECM noget for dig?</span>
+          <h2 class="h2" style="margin-top:20px;">Kan du genkende dig selv?</h2>
+          <p class="lede">Det her er ikke en optagelsestest — bare et par kendetegn, vi ofte ser hos folk, der trives på ECM.</p>
+          <div class="fit-list">
+            <div class="fit-item"><span class="mark">✓</span><p>Du er nysgerrig på digitale trends og bliver ved med at spørge "hvorfor virker det her?"</p></div>
+            <div class="fit-item"><span class="mark">✓</span><p>Du interesserer dig for brands, og hvordan de bygger relationer til deres kunder.</p></div>
+            <div class="fit-item"><span class="mark">✓</span><p>Du kan lide at skabe ting — kampagner, sider, indhold eller produkter.</p></div>
+            <div class="fit-item"><span class="mark">✓</span><p>Du synes tal og data er spændende, ikke bare nødvendige.</p></div>
+            <div class="fit-item"><span class="mark">✓</span><p>Du er tiltrukket af tanken om selv at bygge noget digitalt en dag.</p></div>
+          </div>
+        </div>
+        <div class="fit-note reveal">
+          <strong style="font-family:var(--font-display); font-size:1.1rem; display:block; margin-bottom:10px;">Én ting ECM ikke er</strong>
+          <p>ECM er ikke en genvej til at blive influencer. Sociale medier er en del af det digitale univers, du arbejder i — men uddannelsen klæder dig på til et bredere felt: marketing, e-commerce, web, design og data i kombination. Det er en professionel uddannelse i digital forretning, ikke i personlig branding.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EN DAG PÅ ECM ===================== -->
+  <section id="en-dag">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow-tag"><span class="dot"></span>Studiehverdag</span>
+        <h2 class="h2" style="margin-top:20px;">En dag på ECM</h2>
+        <p class="lede">Et illustrativt eksempel på, hvordan en studiedag kan se ud — ikke et officielt skema.</p>
+      </div>
+      <div class="day-wrap reveal">
+        <div class="day-side">
+          <span class="badge-full">Fuldtidsstudie · ca. 37 timer/uge</span>
+          <p>Undervisning, gruppearbejde og selvstudie tilsammen. Fordelingen varierer fra uge til uge og afhænger af projekter og semester.</p>
+        </div>
+        <div class="timeline" id="timeline">
+          <div class="t-row is-active">
+            <div class="t-time">09:00</div>
+            <div><div class="t-title">Undervisning</div><div class="t-desc">Fagligt oplæg — teori og cases inden for f.eks. marketing, e-commerce eller data.</div></div>
+          </div>
+          <div class="t-row">
+            <div class="t-time">10:30</div>
+            <div><div class="t-title">Workshop</div><div class="t-desc">Praktisk arbejde med værktøjer og metoder fra formiddagens oplæg.</div></div>
+          </div>
+          <div class="t-row">
+            <div class="t-time">12:00</div>
+            <div><div class="t-title">Frokost</div><div class="t-desc">Pause sammen med studiegruppen.</div></div>
+          </div>
+          <div class="t-row">
+            <div class="t-time">13:00</div>
+            <div><div class="t-title">Projektarbejde</div><div class="t-desc">Arbejde med semesterets projekt — ofte i grupper og med en reel problemstilling.</div></div>
+          </div>
+          <div class="t-row">
+            <div class="t-time">14:30</div>
+            <div><div class="t-title">Gruppearbejde</div><div class="t-desc">Videre bearbejdning, research eller produktion sammen med gruppen.</div></div>
+          </div>
+          <div class="t-row">
+            <div class="t-time">16:00</div>
+            <div><div class="t-title">Sparring</div><div class="t-desc">Feedback fra underviser eller medstuderende inden dagen slutter.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROCESS ===================== -->
+  <section id="proces" class="section-tight">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow-tag"><span class="dot"></span>Arbejdsmetode</span>
+        <h2 class="h2" style="margin-top:20px;">Fra idé til digital forretning</h2>
+        <p class="lede">Sådan bevæger et projekt sig typisk fra tanke til noget, der kan bruges i virkeligheden.</p>
+      </div>
+      <div class="process-strip reveal">
+        <div class="process-step"><span class="step-label">01</span><h4>Idé</h4><p>Et problem eller en mulighed identificeres.</p></div>
+        <div class="process-step"><span class="step-label">02</span><h4>Research</h4><p>Målgruppe, marked og konkurrenter undersøges.</p></div>
+        <div class="process-step"><span class="step-label">03</span><h4>Design</h4><p>Løsningen tager visuel og strukturel form.</p></div>
+        <div class="process-step"><span class="step-label">04</span><h4>Marketing</h4><p>Historien og kanalerne omkring løsningen planlægges.</p></div>
+        <div class="process-step"><span class="step-label">05</span><h4>Data</h4><p>Resultater måles, og adfærd analyseres.</p></div>
+        <div class="process-step"><span class="step-label">06</span><h4>Optimering</h4><p>Løsningen justeres på baggrund af data.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CASES ===================== -->
+  <section id="cases">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow-tag"><span class="dot"></span>Cases &amp; projekter</span>
+        <h2 class="h2" style="margin-top:20px;">Det her arbejder man med</h2>
+        <p class="lede">Eksempler på projekttyper fra uddannelsen. Konkrete resultater tilføjes, når cases fra ECM er dokumenteret.</p>
+      </div>
+      <div class="case-grid reveal">
+        <div class="case-card">
+          <div class="case-id">Case 01 — E-commerce</div>
+          <h4>Opbygning af en webshop</h4>
+          <div class="case-flow"><span>Problem</span><span>Analyse</span><span>Løsning</span></div>
+          <p class="placeholder-note">[CASE SKAL TILFØJES — konkret projekt og resultat fra ECM indsættes her]</p>
+        </div>
+        <div class="case-card">
+          <div class="case-id">Case 02 — Digital Marketing</div>
+          <h4>Kampagne på tværs af kanaler</h4>
+          <div class="case-flow"><span>Problem</span><span>Analyse</span><span>Løsning</span></div>
+          <p class="placeholder-note">[CASE SKAL TILFØJES — konkret projekt og resultat fra ECM indsættes her]</p>
+        </div>
+        <div class="case-card">
+          <div class="case-id">Case 03 — Web &amp; UX</div>
+          <h4>Redesign af en digital brugerrejse</h4>
+          <div class="case-flow"><span>Problem</span><span>Analyse</span><span>Løsning</span></div>
+          <p class="placeholder-note">[CASE SKAL TILFØJES — konkret projekt og resultat fra ECM indsættes her]</p>
+        </div>
+        <div class="case-card">
+          <div class="case-id">Case 04 — Data &amp; Konvertering</div>
+          <h4>Konverteringsoptimering af en kampagne</h4>
+          <div class="case-flow"><span>Problem</span><span>Analyse</span><span>Løsning</span></div>
+          <p class="placeholder-note">[CASE SKAL TILFØJES — konkret projekt og resultat fra ECM indsættes her]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== STUDIELIV ===================== -->
+  <section id="studieliv">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow-tag"><span class="dot"></span>Studieliv</span>
+        <h2 class="h2" style="margin-top:20px;">Hverdagen på ECM</h2>
+        <p class="lede">Billeder og video fra undervisningen tilføjes løbende — her er de øjeblikke, siden er bygget til at vise.</p>
+      </div>
+      <div class="life-grid reveal">
+        <div class="life-tile"><span class="ph-icon">Foto</span><span>Undervisning</span></div>
+        <div class="life-tile"><span class="ph-icon">Video</span><span>Projektarbejde</span></div>
+        <div class="life-tile"><span class="ph-icon">Foto</span><span>Workshop</span></div>
+        <div class="life-tile"><span class="ph-icon">Foto</span><span>Fællesskab</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SOCIAL PROOF ===================== -->
+  <section id="perspektiver">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow-tag"><span class="dot"></span>Studerendes perspektiver</span>
+        <h2 class="h2" style="margin-top:20px;">Hør det fra dem, der går der</h2>
+      </div>
+      <div class="proof-grid reveal">
+        <div class="quote-card">
+          <p class="quote">"[CITAT FRA STUDERENDE indsættes her]"</p>
+          <div class="who">[NAVN, SEMESTER]</div>
+        </div>
+        <div class="video-card">
+          <div class="play">▶</div>
+          <div class="cap">[VIDEO FRA UNDERVISNING — testimonial tilføjes]</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== KARRIERE ===================== -->
+  <section id="karriere">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow-tag"><span class="dot"></span>Karriere</span>
+        <h2 class="h2" style="margin-top:20px;">Hvad kan du bruge det til?</h2>
+        <p class="lede">ECM klæder dig på til arbejdsområder inden for digital forretning — ikke til ét bestemt jobtitel.</p>
+      </div>
+      <div class="career-grid reveal">
+        <div class="career-cell">E-commerce</div>
+        <div class="career-cell">Digital Marketing</div>
+        <div class="career-cell">SEO</div>
+        <div class="career-cell">Content</div>
+        <div class="career-cell">Performance Marketing</div>
+        <div class="career-cell">UX/UI</div>
+        <div class="career-cell">Web</div>
+        <div class="career-cell">Digital forretningsudvikling</div>
+      </div>
+      <p class="career-disclaimer reveal">Uddannelsen giver kompetencer inden for disse områder. Den garanterer ikke et bestemt job eller en bestemt løn efter afsluttet uddannelse.</p>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow-tag"><span class="dot"></span>FAQ</span>
+        <h2 class="h2" style="margin-top:20px;">Gode spørgsmål at stille</h2>
+      </div>
+      <div class="faq-list reveal" id="faqList">
+        <div class="faq-item is-open">
+          <button class="faq-q" aria-expanded="true">Hvad er E-commerce og Digital Marketing? <span class="plus">+</span></button>
+          <div class="faq-a"><p>En fuldtidsuddannelse, der kombinerer marketing, e-commerce, data, design og digital forretning — med fokus på, hvordan digitale virksomheder faktisk fungerer og udvikler sig.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Skal man være god til matematik? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Der arbejdes med tal og data, men på et anvendelsesorienteret niveau. Præcise adgangskrav findes hos Erhvervsakademi København.</p><p class="verify">[INFORMATION SKAL VERIFICERES]</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Skal man kunne kode? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Nej, det er ikke et krav. ECM handler mere om at forstå og bruge digitale værktøjer end om at udvikle dem tekniske fra bunden.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Hvor kreativ er uddannelsen? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Kreativitet fylder i arbejdet med content, design og kampagner — kombineret med en analytisk og forretningsorienteret tilgang.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Arbejder man med sociale medier? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Ja, som en del af det digitale univers — men uddannelsen dækker markant bredere end sociale medier alene.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Hvordan foregår undervisningen? <span class="plus">+</span></button>
+          <div class="faq-a"><p>En kombination af oplæg, workshops, projektarbejde og gruppearbejde. Se afsnittet "En dag på ECM" ovenfor for et eksempel.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Hvor mange timer om ugen skal man regne med? <span class="plus">+</span></button>
+          <div class="faq-a"><p>ECM er et fuldtidsstudie med en forventet arbejdsbelastning på omkring 37 timer om ugen.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Hvilke jobs kan uddannelsen føre til? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Områder som e-commerce, digital marketing, content, SEO, performance marketing, UX/UI og digital forretningsudvikling. Se afsnittet "Karriere" ovenfor.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Hvordan søger man ind? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Ansøgning foregår gennem den officielle optagelsesproces hos Erhvervsakademi København / optagelse.dk.</p><p class="verify">[INDSÆT OFFICIEL ANSØGNINGSLINK]</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FINAL CTA ===================== -->
+  <section class="final-cta" id="ansoegning">
+    <div class="wrap">
+      <h2 class="reveal">Er du klar til at gøre din interesse digital?</h2>
+      <p class="lede reveal">Udforsk uddannelsen, eller gå direkte videre til, hvordan du søger ind.</p>
+      <div class="hero-actions reveal">
+        <a href="#" class="btn btn-on-dark">Søg ind</a>
+        <a href="#hvad-er-ecm" class="btn btn-ghost" style="border-color:rgba(245,244,239,0.3); color:var(--bg);">Se uddannelsen igen</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="#top" class="wordmark" style="margin-bottom:14px;">
+          <strong>ECM</strong>
+          <span>E-commerce &amp; Digital Marketing</span>
+        </a>
+        <p style="color:var(--ink-soft); font-size:0.9rem; max-width:280px; margin-top:14px;">En fuldtidsuddannelse på Erhvervsakademi København for dig, der vil forstå og bygge digital forretning.</p>
+      </div>
+      <div>
+        <h5>Uddannelsen</h5>
+        <a href="#hvad-er-ecm">Om ECM</a>
+        <a href="#det-laerer-du">Fag</a>
+        <a href="#studieliv">Studieliv</a>
+      </div>
+      <div>
+        <h5>Mere</h5>
+        <a href="#cases">Cases</a>
+        <a href="#karriere">Karriere</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div>
+        <h5>Ansøgning</h5>
+        <a href="#ansoegning">Søg ind</a>
+        <a href="#" >[Optagelse.dk — link tilføjes]</a>
+        <a href="#">[Kontakt EK — link tilføjes]</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Erhvervsakademi København — Designprototype, ECM</span>
+      <span>Alle fag, cases og citater markeret med [ ] er placeholders og afventer officiel information</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Mobile nav
+  var burger = document.getElementById('burgerBtn');
+  var panel = document.getElementById('mobilePanel');
+  burger.addEventListener('click', function(){
+    var open = panel.classList.toggle('is-open');
+    burger.classList.toggle('is-open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  panel.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      panel.classList.remove('is-open');
+      burger.classList.remove('is-open');
+      burger.setAttribute('aria-expanded','false');
+    });
+  });
+
+  // Flip cards (you already know this)
+  document.querySelectorAll('.flip-card').forEach(function(card){
+    card.addEventListener('click', function(){
+      var active = card.classList.contains('is-active');
+      document.querySelectorAll('.flip-card').forEach(function(c){ c.classList.remove('is-active'); });
+      if(!active){ card.classList.add('is-active'); }
+    });
+  });
+
+  // Competency grid
+  document.querySelectorAll('.comp-cell').forEach(function(cell){
+    cell.addEventListener('click', function(){
+      cell.classList.toggle('is-active');
+    });
+  });
+
+  // Timeline
+  document.querySelectorAll('.t-row').forEach(function(row){
+    row.addEventListener('click', function(){
+      var active = row.classList.contains('is-active');
+      document.querySelectorAll('.t-row').forEach(function(r){ r.classList.remove('is-active'); });
+      if(!active){ row.classList.add('is-active'); }
+    });
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var btn = item.querySelector('.faq-q');
+    btn.addEventListener('click', function(){
+      var open = item.classList.contains('is-open');
+      document.querySelectorAll('.faq-item').forEach(function(i){
+        i.classList.remove('is-open');
+        i.querySelector('.faq-q').setAttribute('aria-expanded','false');
+      });
+      if(!open){
+        item.classList.add('is-open');
+        btn.setAttribute('aria-expanded','true');
+      }
+    });
+  });
+
+  // Scroll reveal
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if('IntersectionObserver' in window && !reduced){
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('is-visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(function(el){ obs.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('is-visible'); });
+  }
+})();
+</script>
+
+</body>
+</html>
