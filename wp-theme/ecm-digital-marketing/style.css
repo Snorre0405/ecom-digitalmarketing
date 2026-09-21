@@ -1,0 +1,20 @@
+/*
+Theme Name: ECM — E-commerce & Digital Marketing
+Theme URI: https://github.com/Snorre0405/ecom-digitalmarketing
+Author: ECM-gruppen, Erhvervsakademi København
+Author URI: https://github.com/Snorre0405/ecom-digitalmarketing
+Description: Blocktema til markedsføringssiden for uddannelsen E-commerce og Digital Marketing (ECM) på Erhvervsakademi København. Konverteret fra det statiske HTML-design (se /docs på GitHub) til et fuldt redigerbart WordPress-blocktema med Gutenberg/Site Editor-understøttelse: theme.json-designtokens, template parts (header/footer), dedikerede sideskabeloner for alle 10 sider og en genbrugelig pattern-bibliotek.
+Requires at least: 6.5
+Tested up to: 6.6
+Requires PHP: 7.4
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: ecm-digital-marketing
+Tags: block-theme, full-site-editing, education, one-page, custom-colors, custom-menu, accessibility-ready
+
+Denne fil indeholder kun theme-headeren, som WordPress kræver. Selve
+designet (komponenter, grid, tilgængelighed) ligger i
+assets/css/style.css og indlæses via functions.php, så det samme
+CSS-sprog kan genbruges direkte fra det oprindelige statiske site.
+*/
