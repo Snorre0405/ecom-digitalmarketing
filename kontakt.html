@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontakt — ECM | Erhvervsakademi København</title>
+<meta name="description" content="Har du spørgsmål til ECM? Skriv til os, eller kontakt EK's studievejledning direkte.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<noscript><style>.reveal{opacity:1 !important;transform:none !important;}</style></noscript>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Spring til indhold</a>
+
+<header class="site-header">
+  <nav class="nav" aria-label="Hovednavigation">
+    <a href="index.html" class="wordmark">
+      <strong>ECM</strong>
+      <span>E-commerce &amp; Digital Marketing</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="uddannelse.html">Uddannelse</a></li>
+      <li><a href="studiemiljoe.html">Studiemiljø</a></li>
+      <li><a href="karriere.html">Karriere + Muligheder</a></li>
+      <li><a href="praktisk-info.html">Praktisk info</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="test.html" class="btn btn-primary btn-sm header-cta desktop-only">Tag Testen Her</a>
+      <button class="icon-btn" id="searchToggle" aria-expanded="false" aria-controls="searchPanel" aria-label="Åbn søgning">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <a href="test.html" class="btn btn-primary btn-sm header-cta mobile-only">Test</a>
+      <button class="burger" id="burgerBtn" aria-expanded="false" aria-controls="mobilePanel" aria-label="Åbn menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="search-panel" id="searchPanel">
+    <form class="search-form" id="searchForm" role="search">
+      <label for="searchInput" class="sr-only">Søg på sitet</label>
+      <input type="text" id="searchInput" name="q" placeholder="Søg efter fx “uddannelse”, “FAQ”, “kontakt”…" autocomplete="off">
+      <button type="submit">Søg</button>
+    </form>
+    <div id="searchResults"></div>
+  </div>
+</header>
+
+<div class="mobile-panel" id="mobilePanel">
+  <a href="index.html">Forside</a>
+  <a href="uddannelse.html">Uddannelse</a>
+  <a href="studiemiljoe.html">Studiemiljø</a>
+  <a href="karriere.html">Karriere + Muligheder</a>
+  <a href="praktisk-info.html">Praktisk info</a>
+  <a href="kontakt.html">Kontakt</a>
+  <a href="test.html" class="btn btn-primary">Tag Testen Her</a>
+</div>
+
+<main id="main">
+
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Brødkrumme">
+      <a href="index.html">Forside</a><span class="sep">/</span><span class="current">Kontakt</span>
+    </nav>
+  </div>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow-tag"><span class="dot"></span>Kontakt</span>
+      <h1 class="h1">Har du spørgsmål?</h1>
+      <p class="lede">Skriv til os, eller gå direkte til EK's studievejledning, hvis du har brug for officiel vejledning om ansøgning og optagelse.</p>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap contact-grid">
+
+      <form class="reveal" action="mailto:[INDSÆT KONTAKT-EMAIL]" method="post" enctype="text/plain" aria-label="Kontaktformular">
+        <div class="field">
+          <label for="name">Navn</label>
+          <input type="text" id="name" name="Navn" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="E-mail" required autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="message">Besked</label>
+          <textarea id="message" name="Besked" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send besked</button>
+        <p style="margin-top:14px; font-size:0.82rem; color:var(--ink-faint);">[PLADSHOLDER: Formularen åbner brugerens mailprogram. Indsæt jeres officielle kontakt-mailadresse i action-feltet, eller udskift med en rigtig formular-integration i WordPress.]</p>
+      </form>
+
+      <div class="contact-info reveal">
+        <div class="item">
+          <span class="icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4Z"/><path d="m4 6 8 7 8-7"/></svg>
+          </span>
+          <div>
+            <strong style="display:block; font-family:var(--font-display);">Skriv til gruppen</strong>
+            <a href="mailto:[INDSÆT KONTAKT-EMAIL]">[INDSÆT KONTAKT-EMAIL]</a>
+          </div>
+        </div>
+        <div class="item">
+          <span class="icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </span>
+          <div>
+            <strong style="display:block; font-family:var(--font-display);">Svartid</strong>
+            <span style="color:var(--ink-soft); font-size:0.92rem;">[INDSÆT FORVENTET SVARTID]</span>
+          </div>
+        </div>
+        <div class="item">
+          <span class="icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-5.3-7-11a7 7 0 0 1 14 0c0 5.7-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          </span>
+          <div>
+            <strong style="display:block; font-family:var(--font-display);">Erhvervsakademi København</strong>
+            <span style="color:var(--ink-soft); font-size:0.92rem;">[INDSÆT ADRESSE]</span>
+          </div>
+        </div>
+        <div class="note-box" style="margin-top:8px;">
+          <strong>Officiel studievejledning</strong>
+          <p>Spørgsmål om ansøgning, adgangskrav og optagelse besvares bedst af EK's egen studievejledning.</p>
+          <div class="hero-actions" style="margin-top:16px;">
+            <a href="https://www.ek.dk/videregaaende-uddannelser/e-commerce-og-digital-marketing" target="_blank" rel="noopener" class="btn btn-dark btn-sm">EK Studievejledning ↗</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="wordmark" style="margin-bottom:14px;">
+          <strong>ECM</strong>
+          <span>E-commerce &amp; Digital Marketing</span>
+        </a>
+        <p style="color:var(--ink-soft); font-size:0.9rem; max-width:280px; margin-top:14px;">En fuldtidsuddannelse på Erhvervsakademi København for dig, der vil forstå og bygge digital forretning.</p>
+      </div>
+      <div>
+        <h5>Uddannelse</h5>
+        <a href="uddannelse.html">Uddannelsen</a>
+        <a href="studiemiljoe.html">Studiemiljø</a>
+        <a href="cases.html">Cases &amp; projekter</a>
+      </div>
+      <div>
+        <h5>Om os</h5>
+        <a href="moed-os.html">Mød os</a>
+        <a href="karriere.html">Karriere + Muligheder</a>
+        <a href="praktisk-info.html">Praktisk info</a>
+      </div>
+      <div>
+        <h5>Support</h5>
+        <a href="faq.html">FAQ</a>
+        <a href="kontakt.html">Kontakt</a>
+        <a href="test.html">Tag testen</a>
+      </div>
+      <div>
+        <h5>Ansøgning</h5>
+        <a href="https://www.optagelse.dk/" target="_blank" rel="noopener">Officiel ansøgning (optagelse.dk) ↗</a>
+        <a href="https://www.ek.dk/videregaaende-uddannelser/e-commerce-og-digital-marketing" target="_blank" rel="noopener">EK — ECM-uddannelsen ↗</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Erhvervsakademi København — Eksamensprojekt, ECM 1. interne eksamen</span>
+      <span>Indhold markeret med [ ] er pladsholdere og afventer officiel information</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
