@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studiemiljø — ECM | Erhvervsakademi København</title>
+<meta name="description" content="Se en helt almindelig studiedag på ECM, og få et indblik i undervisning, projekter og det sociale liv på studiet.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<noscript><style>.reveal{opacity:1 !important;transform:none !important;}</style></noscript>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Spring til indhold</a>
+
+<header class="site-header">
+  <nav class="nav" aria-label="Hovednavigation">
+    <a href="index.html" class="wordmark">
+      <strong>ECM</strong>
+      <span>E-commerce &amp; Digital Marketing</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="uddannelse.html">Uddannelse</a></li>
+      <li><a href="studiemiljoe.html">Studiemiljø</a></li>
+      <li><a href="karriere.html">Karriere + Muligheder</a></li>
+      <li><a href="praktisk-info.html">Praktisk info</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="test.html" class="btn btn-primary btn-sm header-cta desktop-only">Tag Testen Her</a>
+      <button class="icon-btn" id="searchToggle" aria-expanded="false" aria-controls="searchPanel" aria-label="Åbn søgning">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <a href="test.html" class="btn btn-primary btn-sm header-cta mobile-only">Test</a>
+      <button class="burger" id="burgerBtn" aria-expanded="false" aria-controls="mobilePanel" aria-label="Åbn menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="search-panel" id="searchPanel">
+    <form class="search-form" id="searchForm" role="search">
+      <label for="searchInput" class="sr-only">Søg på sitet</label>
+      <input type="text" id="searchInput" name="q" placeholder="Søg efter fx “uddannelse”, “FAQ”, “kontakt”…" autocomplete="off">
+      <button type="submit">Søg</button>
+    </form>
+    <div id="searchResults"></div>
+  </div>
+</header>
+
+<div class="mobile-panel" id="mobilePanel">
+  <a href="index.html">Forside</a>
+  <a href="uddannelse.html">Uddannelse</a>
+  <a href="studiemiljoe.html">Studiemiljø</a>
+  <a href="karriere.html">Karriere + Muligheder</a>
+  <a href="praktisk-info.html">Praktisk info</a>
+  <a href="kontakt.html">Kontakt</a>
+  <a href="test.html" class="btn btn-primary">Tag Testen Her</a>
+</div>
+
+<main id="main">
+
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Brødkrumme">
+      <a href="index.html">Forside</a><span class="sep">/</span><span class="current">Studiemiljø</span>
+    </nav>
+  </div>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow-tag"><span class="dot"></span>Studiemiljø</span>
+      <h1 class="h1">Sådan er hverdagen på ECM</h1>
+      <p class="lede">Ikke bare forelæsninger og noter — men undervisning, projektarbejde og en studiegruppe, du er sammen med hver dag. Her får du et realistisk indblik i, hvad en studiedag faktisk indeholder.</p>
+    </div>
+  </section>
+
+  <!-- EN DAG PÅ ECM -->
+  <section id="en-dag">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow-tag"><span class="dot"></span>Studiehverdag</span>
+        <h2 class="h2">En helt almindelig studiedag</h2>
+        <p class="lede">Et illustrativt eksempel på, hvordan en studiedag kan se ud — ikke et officielt skema. Klik på et tidspunkt for at folde det ud.</p>
+      </div>
+      <div class="day-wrap reveal">
+        <div class="day-side">
+          <span class="badge-full">Fuldtidsstudie · ca. 37 timer/uge</span>
+          <p>Undervisning, gruppearbejde og selvstudie tilsammen. Fordelingen varierer fra uge til uge og afhænger af projekter og semester.</p>
+        </div>
+        <div class="timeline" id="timeline">
+          <button class="t-row" type="button" aria-expanded="true">
+            <div class="t-time">09:00</div>
+            <div><div class="t-title-row"><span class="t-title">Undervisning</span><span class="plus" aria-hidden="true">+</span></div><div class="t-desc">Fagligt oplæg — teori og cases inden for fx marketing, e-commerce eller data.</div></div>
+          </button>
+          <button class="t-row" type="button" aria-expanded="false">
+            <div class="t-time">10:30</div>
+            <div><div class="t-title-row"><span class="t-title">Workshop</span><span class="plus" aria-hidden="true">+</span></div><div class="t-desc">Praktisk arbejde med værktøjer og metoder fra formiddagens oplæg.</div></div>
+          </button>
+          <button class="t-row" type="button" aria-expanded="false">
+            <div class="t-time">12:00</div>
+            <div><div class="t-title-row"><span class="t-title">Frokost</span><span class="plus" aria-hidden="true">+</span></div><div class="t-desc">Pause sammen med studiegruppen i kantinen eller udenfor.</div></div>
+          </button>
+          <button class="t-row" type="button" aria-expanded="false">
+            <div class="t-time">13:00</div>
+            <div><div class="t-title-row"><span class="t-title">Projektarbejde</span><span class="plus" aria-hidden="true">+</span></div><div class="t-desc">Arbejde med semesterets projekt — ofte i grupper og med en reel problemstilling.</div></div>
+          </button>
+          <button class="t-row" type="button" aria-expanded="false">
+            <div class="t-time">14:30</div>
+            <div><div class="t-title-row"><span class="t-title">Gruppearbejde</span><span class="plus" aria-hidden="true">+</span></div><div class="t-desc">Videre bearbejdning, research eller produktion sammen med gruppen.</div></div>
+          </button>
+          <button class="t-row" type="button" aria-expanded="false">
+            <div class="t-time">16:00</div>
+            <div><div class="t-title-row"><span class="t-title">Sparring</span><span class="plus" aria-hidden="true">+</span></div><div class="t-desc">Feedback fra underviser eller medstuderende, inden dagen slutter.</div></div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERI -->
+  <section id="galleri">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow-tag"><span class="dot"></span>Billeder &amp; video</span>
+        <h2 class="h2">Fra undervisning, projekter og fællesskab</h2>
+        <p class="lede">Her indsætter I jeres egne billeder og videoklip fra undervisningen. Pladsholderne viser, hvad hvert felt skal vise.</p>
+      </div>
+      <div class="life-grid reveal">
+        <div class="life-tile"><span class="ph-icon">Foto</span><span class="ttl">Undervisning</span><p>[BILLEDE: Studerende i gang med et fagligt oplæg i lokalet.]</p></div>
+        <div class="life-tile"><span class="ph-icon">Video</span><span class="ttl">Projektarbejde</span><p>[VIDEO: Kort klip fra en gruppe, der arbejder med et projekt — liggende, gerne 15–30 sek.]</p></div>
+        <div class="life-tile"><span class="ph-icon">Foto</span><span class="ttl">Workshop</span><p>[BILLEDE: Hands-on arbejde med et digitalt værktøj eller en case.]</p></div>
+        <div class="life-tile"><span class="ph-icon">Foto</span><span class="ttl">Fællesskab</span><p>[BILLEDE: Afslappet billede fra en pause eller social aktivitet på studiet.]</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LINK VIDERE -->
+  <section class="section-tight">
+    <div class="wrap">
+      <div class="card-row" style="grid-template-columns:1fr; display:grid; gap:14px;">
+        <a class="menu-card" href="cases.html" style="grid-column:auto;">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </span>
+          <div><h3>Cases &amp; projekter</h3><p class="lede" style="font-size:0.92rem; margin-top:8px;">Se konkrete eksempler på, hvad man arbejder med på studiet — bl.a. denne hjemmeside.</p></div>
+          <span class="arrow">Se cases →</span>
+        </a>
+        <a class="menu-card" href="moed-os.html" style="grid-column:auto;">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 3-5.5 6.5-5.5S15.5 16.4 15.5 20"/><circle cx="17.5" cy="9" r="2.7"/><path d="M15.7 14.3c2.7.3 4.8 2 4.8 5.2"/></svg>
+          </span>
+          <div><h3>Mød os</h3><p class="lede" style="font-size:0.92rem; margin-top:8px;">Vi går selv på ECM — læs hvorfor vi valgte uddannelsen.</p></div>
+          <span class="arrow">Mød gruppen →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="wordmark" style="margin-bottom:14px;">
+          <strong>ECM</strong>
+          <span>E-commerce &amp; Digital Marketing</span>
+        </a>
+        <p style="color:var(--ink-soft); font-size:0.9rem; max-width:280px; margin-top:14px;">En fuldtidsuddannelse på Erhvervsakademi København for dig, der vil forstå og bygge digital forretning.</p>
+      </div>
+      <div>
+        <h5>Uddannelse</h5>
+        <a href="uddannelse.html">Uddannelsen</a>
+        <a href="studiemiljoe.html">Studiemiljø</a>
+        <a href="cases.html">Cases &amp; projekter</a>
+      </div>
+      <div>
+        <h5>Om os</h5>
+        <a href="moed-os.html">Mød os</a>
+        <a href="karriere.html">Karriere + Muligheder</a>
+        <a href="praktisk-info.html">Praktisk info</a>
+      </div>
+      <div>
+        <h5>Support</h5>
+        <a href="faq.html">FAQ</a>
+        <a href="kontakt.html">Kontakt</a>
+        <a href="test.html">Tag testen</a>
+      </div>
+      <div>
+        <h5>Ansøgning</h5>
+        <a href="https://www.optagelse.dk/" target="_blank" rel="noopener">Officiel ansøgning (optagelse.dk) ↗</a>
+        <a href="https://www.ek.dk/videregaaende-uddannelser/e-commerce-og-digital-marketing" target="_blank" rel="noopener">EK — ECM-uddannelsen ↗</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Erhvervsakademi København — Eksamensprojekt, ECM 1. interne eksamen</span>
+      <span>Indhold markeret med [ ] er pladsholdere og afventer officiel information</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

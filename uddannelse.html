@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uddannelsen — ECM | Erhvervsakademi København</title>
+<meta name="description" content="Hvad lærer du på E-commerce og Digital Marketing? Se de faglige områder, arbejdsformen og hvor kreativ og teknisk uddannelsen er.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<noscript><style>.reveal{opacity:1 !important;transform:none !important;}</style></noscript>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Spring til indhold</a>
+
+<header class="site-header">
+  <nav class="nav" aria-label="Hovednavigation">
+    <a href="index.html" class="wordmark">
+      <strong>ECM</strong>
+      <span>E-commerce &amp; Digital Marketing</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="uddannelse.html">Uddannelse</a></li>
+      <li><a href="studiemiljoe.html">Studiemiljø</a></li>
+      <li><a href="karriere.html">Karriere + Muligheder</a></li>
+      <li><a href="praktisk-info.html">Praktisk info</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="test.html" class="btn btn-primary btn-sm header-cta desktop-only">Tag Testen Her</a>
+      <button class="icon-btn" id="searchToggle" aria-expanded="false" aria-controls="searchPanel" aria-label="Åbn søgning">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <a href="test.html" class="btn btn-primary btn-sm header-cta mobile-only">Test</a>
+      <button class="burger" id="burgerBtn" aria-expanded="false" aria-controls="mobilePanel" aria-label="Åbn menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="search-panel" id="searchPanel">
+    <form class="search-form" id="searchForm" role="search">
+      <label for="searchInput" class="sr-only">Søg på sitet</label>
+      <input type="text" id="searchInput" name="q" placeholder="Søg efter fx “uddannelse”, “FAQ”, “kontakt”…" autocomplete="off">
+      <button type="submit">Søg</button>
+    </form>
+    <div id="searchResults"></div>
+  </div>
+</header>
+
+<div class="mobile-panel" id="mobilePanel">
+  <a href="index.html">Forside</a>
+  <a href="uddannelse.html">Uddannelse</a>
+  <a href="studiemiljoe.html">Studiemiljø</a>
+  <a href="karriere.html">Karriere + Muligheder</a>
+  <a href="praktisk-info.html">Praktisk info</a>
+  <a href="kontakt.html">Kontakt</a>
+  <a href="test.html" class="btn btn-primary">Tag Testen Her</a>
+</div>
+
+<main id="main">
+
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Brødkrumme">
+      <a href="index.html">Forside</a><span class="sep">/</span><span class="current">Uddannelse</span>
+    </nav>
+  </div>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow-tag"><span class="dot"></span>Uddannelsen</span>
+      <h1 class="h1">Det, du følger på skærmen — lært som fag</h1>
+      <p class="lede">ECM er en fuldtidsuddannelse, der samler marketing, e-commerce, web, design og data i én faglig helhed. Du skal ikke vælge mellem det kreative og det analytiske — du lærer at bruge begge dele sammen.</p>
+    </div>
+  </section>
+
+  <!-- FULDTID-BOKS -->
+  <section class="section-tight">
+    <div class="wrap">
+      <div class="note-box reveal" style="max-width:720px;">
+        <strong>Fuldtidsstudie</strong>
+        <p>ECM er et fuldtidsstudie med en forventet arbejdsbelastning på ca. <strong>37 timer om ugen</strong> — undervisning, projektarbejde og selvstudie tilsammen. Det er ikke noget, du læser ved siden af et fuldtidsjob.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAGLIGE OMRÅDER -->
+  <section id="fag">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow-tag"><span class="dot"></span>Det lærer du</span>
+        <h2 class="h2">Otte faglige områder — klik for at folde ud</h2>
+        <p class="lede">De konkrete fagnavne, moduler og ECTS-point fastlægges af Erhvervsakademi København. Her er de faglige områder, uddannelsen bygger på.</p>
+      </div>
+      <div class="comp-grid reveal" id="compGrid">
+        <button class="comp-cell" type="button"><div><h4>Digital Marketing</h4></div><div class="more">Kampagnestrategi, kanaler, annoncering og målgruppeforståelse på tværs af platforme som Meta, TikTok og Google.</div><div class="toggle-row"><span></span><span class="plus" aria-hidden="true">+</span></div></button>
+        <button class="comp-cell" type="button"><div><h4>E-commerce</h4></div><div class="more">Webshop-opbygning, produktpræsentation og kundens rejse fra besøg til køb — fx i platforme som Shopify.</div><div class="toggle-row"><span></span><span class="plus" aria-hidden="true">+</span></div></button>
+        <button class="comp-cell" type="button"><div><h4>Web</h4></div><div class="more">Grundlæggende forståelse af websites, platforme og hvordan digitale løsninger hænger sammen teknisk.</div><div class="toggle-row"><span></span><span class="plus" aria-hidden="true">+</span></div></button>
+        <button class="comp-cell" type="button"><div><h4>Design</h4></div><div class="more">Visuel kommunikation og brugeroplevelse — hvordan noget ser godt ud og er nemt at bruge.</div><div class="toggle-row"><span></span><span class="plus" aria-hidden="true">+</span></div></button>
+        <button class="comp-cell" type="button"><div><h4>Data</h4></div><div class="more">At læse tal og adfærd, og omsætte dem til beslutninger frem for antagelser.</div><div class="toggle-row"><span></span><span class="plus" aria-hidden="true">+</span></div></button>
+        <button class="comp-cell" type="button"><div><h4>SEO</h4></div><div class="more">Hvordan indhold og sider bliver fundet i søgning — organisk, uden annoncebudget.</div><div class="toggle-row"><span></span><span class="plus" aria-hidden="true">+</span></div></button>
+        <button class="comp-cell" type="button"><div><h4>Content</h4></div><div class="more">At planlægge og skabe indhold, der passer til kanal, målgruppe og formål.</div><div class="toggle-row"><span></span><span class="plus" aria-hidden="true">+</span></div></button>
+        <button class="comp-cell" type="button"><div><h4>Digital forretning</h4></div><div class="more">Forretningsforståelse, strategi og hvordan de andre discipliner spiller sammen i praksis.</div><div class="toggle-row"><span></span><span class="plus" aria-hidden="true">+</span></div></button>
+      </div>
+      <p class="disclaimer">[Fagoversigt, semesterstruktur og ECTS-fordeling tilføjes, når den er offentliggjort af Erhvervsakademi København — se officiel oversigt: <a href="https://www.ek.dk/videregaaende-uddannelser/e-commerce-og-digital-marketing" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:underline;">ek.dk/e-commerce-og-digital-marketing ↗</a>]</p>
+    </div>
+  </section>
+
+  <!-- DU KENDER DET ALLEREDE -->
+  <section class="known-section" id="du-kender-det">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow-tag on-dark"><span class="dot"></span>Du kender det allerede</span>
+        <h2 class="h2" style="margin-top:20px;">Du bruger det her hver dag. Men hvad sker der bag skærmen?</h2>
+        <p class="lede">Klik på et af begreberne, og se den faglige disciplin, der ligger bag.</p>
+      </div>
+      <div class="flip-grid reveal" id="flipGrid">
+        <button class="flip-card" type="button"><div class="known-label">TikTok</div><div class="hint">Klik for at se hvad der ligger bag →</div><div class="behind">Bag TikTok ligger content-strategi, algoritmeforståelse og evnen til at fange opmærksomhed på sekunder — noget virksomheder betaler for at kunne.</div></button>
+        <button class="flip-card" type="button"><div class="known-label">Instagram</div><div class="hint">Klik for at se hvad der ligger bag →</div><div class="behind">Bag Instagram ligger brandbygning, community og visuel kommunikation — hvordan en virksomhed fortæller en historie, folk vil følge.</div></button>
+        <button class="flip-card" type="button"><div class="known-label">Webshop</div><div class="hint">Klik for at se hvad der ligger bag →</div><div class="behind">Bag en webshop ligger UX, betalingsflows og konverteringsoptimering — de små beslutninger, der afgør om du gennemfører et køb.</div></button>
+        <button class="flip-card" type="button"><div class="known-label">Annoncer</div><div class="hint">Klik for at se hvad der ligger bag →</div><div class="behind">Bag en annonce, du scroller forbi, ligger målgruppeanalyse, budstyring og performance marketing.</div></button>
+        <button class="flip-card" type="button"><div class="known-label">Influencers</div><div class="hint">Klik for at se hvad der ligger bag →</div><div class="behind">Bag et influencer-samarbejde ligger partnerskabsstrategi og målbare KPI'er — hvordan man vurderer, om det gav værdi.</div></button>
+        <button class="flip-card" type="button"><div class="known-label">Google-søgning</div><div class="hint">Klik for at se hvad der ligger bag →</div><div class="behind">Bag søgeresultatet, hvor en butik dukker op først, ligger SEO og indholdsstrategi.</div></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- KREATIVT VS TEKNISK -->
+  <section>
+    <div class="wrap two-col">
+      <div class="reveal">
+        <span class="eyebrow-tag"><span class="dot"></span>Kreativt eller teknisk?</span>
+        <h2 class="h2" style="margin-top:20px;">Begge dele — og det er meningen</h2>
+        <p class="lede">De fleste uddannelser beder dig vælge en side. ECM samler det, fordi det er sådan digital forretning faktisk fungerer.</p>
+        <div class="check-list">
+          <div class="check-item"><span class="mark">✓</span><p>Du arbejder kreativt med content, kampagner og visuel kommunikation.</p></div>
+          <div class="check-item"><span class="mark">✓</span><p>Du arbejder analytisk med data, adfærd og konverteringstal.</p></div>
+          <div class="check-item"><span class="mark">✓</span><p>Du får en grundlæggende teknisk forståelse af web og digitale platforme — uden at det er en programmeringsuddannelse.</p></div>
+          <div class="check-item"><span class="mark">✓</span><p>Du lærer at binde det sammen til en forretningsstrategi, der reelt kan bruges.</p></div>
+        </div>
+      </div>
+      <div class="media-placeholder reveal">
+        <span class="ph-badge">Billede</span>
+        <p class="ph-label">[BILLEDE: Nærbillede af en skærm med et moodboard eller en kampagne under opbygning, kombineret med et regneark/dashboard i baggrunden — symboliserer kreativt + analytisk arbejde side om side.]</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- IKKE EN GENVEJ TIL INFLUENCER -->
+  <section class="fit-teaser">
+    <div class="wrap">
+      <div class="note-box reveal" style="background:rgba(247,246,242,0.06); border-color:rgba(247,246,242,0.25); color:rgba(247,246,242,0.85); max-width:760px; margin:0 auto; text-align:left;">
+        <strong style="color:var(--bg);">Én ting ECM ikke er</strong>
+        <p style="color:rgba(247,246,242,0.75);">ECM er ikke en genvej til at blive influencer. Sociale medier er en del af det digitale univers, du arbejder i — men uddannelsen klæder dig på til et bredere felt: marketing, e-commerce, web, design og data i kombination. Det er en professionel uddannelse i digital forretning, ikke i personlig branding.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-tight">
+    <div class="wrap" style="display:flex; flex-wrap:wrap; gap:16px; align-items:center; justify-content:space-between;">
+      <div>
+        <h2 class="h3">Vil du se, hvordan en studiedag ser ud?</h2>
+      </div>
+      <div class="hero-actions" style="margin-top:0;">
+        <a href="studiemiljoe.html" class="btn btn-primary">Se studiemiljø →</a>
+        <a href="test.html" class="btn btn-ghost">Tag testen her</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="wordmark" style="margin-bottom:14px;">
+          <strong>ECM</strong>
+          <span>E-commerce &amp; Digital Marketing</span>
+        </a>
+        <p style="color:var(--ink-soft); font-size:0.9rem; max-width:280px; margin-top:14px;">En fuldtidsuddannelse på Erhvervsakademi København for dig, der vil forstå og bygge digital forretning.</p>
+      </div>
+      <div>
+        <h5>Uddannelse</h5>
+        <a href="uddannelse.html">Uddannelsen</a>
+        <a href="studiemiljoe.html">Studiemiljø</a>
+        <a href="cases.html">Cases &amp; projekter</a>
+      </div>
+      <div>
+        <h5>Om os</h5>
+        <a href="moed-os.html">Mød os</a>
+        <a href="karriere.html">Karriere + Muligheder</a>
+        <a href="praktisk-info.html">Praktisk info</a>
+      </div>
+      <div>
+        <h5>Support</h5>
+        <a href="faq.html">FAQ</a>
+        <a href="kontakt.html">Kontakt</a>
+        <a href="test.html">Tag testen</a>
+      </div>
+      <div>
+        <h5>Ansøgning</h5>
+        <a href="https://www.optagelse.dk/" target="_blank" rel="noopener">Officiel ansøgning (optagelse.dk) ↗</a>
+        <a href="https://www.ek.dk/videregaaende-uddannelser/e-commerce-og-digital-marketing" target="_blank" rel="noopener">EK — ECM-uddannelsen ↗</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Erhvervsakademi København — Eksamensprojekt, ECM 1. interne eksamen</span>
+      <span>Indhold markeret med [ ] er pladsholdere og afventer officiel information</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

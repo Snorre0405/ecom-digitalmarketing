@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ — ECM | Erhvervsakademi København</title>
+<meta name="description" content="Ofte stillede spørgsmål om ECM — fx om matematik, kodning, studieliv og om man bliver influencer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<noscript><style>.reveal{opacity:1 !important;transform:none !important;}</style></noscript>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Spring til indhold</a>
+
+<header class="site-header">
+  <nav class="nav" aria-label="Hovednavigation">
+    <a href="index.html" class="wordmark">
+      <strong>ECM</strong>
+      <span>E-commerce &amp; Digital Marketing</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="uddannelse.html">Uddannelse</a></li>
+      <li><a href="studiemiljoe.html">Studiemiljø</a></li>
+      <li><a href="karriere.html">Karriere + Muligheder</a></li>
+      <li><a href="praktisk-info.html">Praktisk info</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="test.html" class="btn btn-primary btn-sm header-cta desktop-only">Tag Testen Her</a>
+      <button class="icon-btn" id="searchToggle" aria-expanded="false" aria-controls="searchPanel" aria-label="Åbn søgning">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <a href="test.html" class="btn btn-primary btn-sm header-cta mobile-only">Test</a>
+      <button class="burger" id="burgerBtn" aria-expanded="false" aria-controls="mobilePanel" aria-label="Åbn menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="search-panel" id="searchPanel">
+    <form class="search-form" id="searchForm" role="search">
+      <label for="searchInput" class="sr-only">Søg på sitet</label>
+      <input type="text" id="searchInput" name="q" placeholder="Søg efter fx “uddannelse”, “FAQ”, “kontakt”…" autocomplete="off">
+      <button type="submit">Søg</button>
+    </form>
+    <div id="searchResults"></div>
+  </div>
+</header>
+
+<div class="mobile-panel" id="mobilePanel">
+  <a href="index.html">Forside</a>
+  <a href="uddannelse.html">Uddannelse</a>
+  <a href="studiemiljoe.html">Studiemiljø</a>
+  <a href="karriere.html">Karriere + Muligheder</a>
+  <a href="praktisk-info.html">Praktisk info</a>
+  <a href="kontakt.html">Kontakt</a>
+  <a href="test.html" class="btn btn-primary">Tag Testen Her</a>
+</div>
+
+<main id="main">
+
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Brødkrumme">
+      <a href="index.html">Forside</a><span class="sep">/</span><span class="current">FAQ</span>
+    </nav>
+  </div>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow-tag"><span class="dot"></span>FAQ</span>
+      <h1 class="h1">Gode spørgsmål at stille</h1>
+      <p class="lede">De spørgsmål, vi selv sad med, før vi startede — samlet ét sted.</p>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap">
+      <div class="faq-list reveal" id="faqList">
+        <div class="faq-item" data-open="true">
+          <button class="faq-q" aria-expanded="true">Skal man være god til matematik? <span class="plus" aria-hidden="true">+</span></button>
+          <div class="faq-a"><p>Der arbejdes med tal og data, men på et anvendelsesorienteret niveau — du skal fx kunne læse og forstå statistik, ikke lave avanceret matematik. Præcise adgangskrav findes hos Erhvervsakademi København.</p><p class="verify">[INFORMATION SKAL VERIFICERES — se <a href="praktisk-info.html">Praktisk info</a>]</p></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button class="faq-q" aria-expanded="false">Skal man kunne kode? <span class="plus" aria-hidden="true">+</span></button>
+          <div class="faq-a"><p>Nej, det er ikke et krav. ECM handler mere om at forstå og bruge digitale værktøjer og platforme end om at udvikle dem teknisk fra bunden.</p></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button class="faq-q" aria-expanded="false">Hvordan er studielivet? <span class="plus" aria-hidden="true">+</span></button>
+          <div class="faq-a"><p>En kombination af undervisning, workshops, projektarbejde og gruppearbejde — se <a href="studiemiljoe.html">Studiemiljø</a> for et eksempel på en almindelig studiedag.</p></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button class="faq-q" aria-expanded="false">Bliver man influencer af at læse ECM? <span class="plus" aria-hidden="true">+</span></button>
+          <div class="faq-a"><p>Nej. ECM er ikke en genvej til at blive influencer. Sociale medier er en del af det digitale univers, du lærer om — men uddannelsen giver en bred faglig forståelse af digital marketing, e-commerce, web, design og data.</p></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button class="faq-q" aria-expanded="false">Hvor meget skal man arbejde/studere om ugen? <span class="plus" aria-hidden="true">+</span></button>
+          <div class="faq-a"><p>ECM er et fuldtidsstudie med en forventet arbejdsbelastning på omkring 37 timer om ugen, inklusiv undervisning, projekter og selvstudie.</p></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button class="faq-q" aria-expanded="false">Hvor kreativ er uddannelsen? <span class="plus" aria-hidden="true">+</span></button>
+          <div class="faq-a"><p>Kreativitet fylder i arbejdet med content, design og kampagner — kombineret med en analytisk og forretningsorienteret tilgang. Se <a href="uddannelse.html">Uddannelsen</a> for detaljer.</p></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button class="faq-q" aria-expanded="false">Hvilke jobs kan uddannelsen føre til? <span class="plus" aria-hidden="true">+</span></button>
+          <div class="faq-a"><p>Områder som e-commerce, digital marketing, content, SEO, performance marketing, UX/UI og digital forretningsudvikling. Se <a href="karriere.html">Karriere + Muligheder</a>. Uddannelsen giver ikke garanti for job eller løn.</p></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button class="faq-q" aria-expanded="false">Hvordan søger man ind? <span class="plus" aria-hidden="true">+</span></button>
+          <div class="faq-a"><p>Ansøgning foregår gennem den officielle optagelsesproces hos Erhvervsakademi København / optagelse.dk. Denne side har ikke en ansøgningsfunktion — vi linker dig direkte videre.</p><p class="verify">[SE OFFICIEL ANSØGNINGSLINK PÅ <a href="praktisk-info.html">PRAKTISK INFO</a>]</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap" style="display:flex; flex-wrap:wrap; gap:16px; align-items:center; justify-content:space-between;">
+      <h2 class="h3">Fandt du ikke svar på dit spørgsmål?</h2>
+      <div class="hero-actions" style="margin-top:0;">
+        <a href="kontakt.html" class="btn btn-primary">Kontakt os →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="wordmark" style="margin-bottom:14px;">
+          <strong>ECM</strong>
+          <span>E-commerce &amp; Digital Marketing</span>
+        </a>
+        <p style="color:var(--ink-soft); font-size:0.9rem; max-width:280px; margin-top:14px;">En fuldtidsuddannelse på Erhvervsakademi København for dig, der vil forstå og bygge digital forretning.</p>
+      </div>
+      <div>
+        <h5>Uddannelse</h5>
+        <a href="uddannelse.html">Uddannelsen</a>
+        <a href="studiemiljoe.html">Studiemiljø</a>
+        <a href="cases.html">Cases &amp; projekter</a>
+      </div>
+      <div>
+        <h5>Om os</h5>
+        <a href="moed-os.html">Mød os</a>
+        <a href="karriere.html">Karriere + Muligheder</a>
+        <a href="praktisk-info.html">Praktisk info</a>
+      </div>
+      <div>
+        <h5>Support</h5>
+        <a href="faq.html">FAQ</a>
+        <a href="kontakt.html">Kontakt</a>
+        <a href="test.html">Tag testen</a>
+      </div>
+      <div>
+        <h5>Ansøgning</h5>
+        <a href="https://www.optagelse.dk/" target="_blank" rel="noopener">Officiel ansøgning (optagelse.dk) ↗</a>
+        <a href="https://www.ek.dk/videregaaende-uddannelser/e-commerce-og-digital-marketing" target="_blank" rel="noopener">EK — ECM-uddannelsen ↗</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Erhvervsakademi København — Eksamensprojekt, ECM 1. interne eksamen</span>
+      <span>Indhold markeret med [ ] er pladsholdere og afventer officiel information</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

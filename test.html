@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Er ECM noget for dig? — Tag testen | ECM</title>
+<meta name="description" content="Svar på 8 hurtige spørgsmål om dine interesser og din måde at arbejde på, og få en ærlig tilbagemelding på, om ECM kan være noget for dig.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<noscript><style>.reveal{opacity:1 !important;transform:none !important;}</style></noscript>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Spring til indhold</a>
+
+<header class="site-header">
+  <nav class="nav" aria-label="Hovednavigation">
+    <a href="index.html" class="wordmark">
+      <strong>ECM</strong>
+      <span>E-commerce &amp; Digital Marketing</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="uddannelse.html">Uddannelse</a></li>
+      <li><a href="studiemiljoe.html">Studiemiljø</a></li>
+      <li><a href="karriere.html">Karriere + Muligheder</a></li>
+      <li><a href="praktisk-info.html">Praktisk info</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="test.html" class="btn btn-primary btn-sm header-cta desktop-only">Tag Testen Her</a>
+      <button class="icon-btn" id="searchToggle" aria-expanded="false" aria-controls="searchPanel" aria-label="Åbn søgning">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <a href="test.html" class="btn btn-primary btn-sm header-cta mobile-only">Test</a>
+      <button class="burger" id="burgerBtn" aria-expanded="false" aria-controls="mobilePanel" aria-label="Åbn menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="search-panel" id="searchPanel">
+    <form class="search-form" id="searchForm" role="search">
+      <label for="searchInput" class="sr-only">Søg på sitet</label>
+      <input type="text" id="searchInput" name="q" placeholder="Søg efter fx “uddannelse”, “FAQ”, “kontakt”…" autocomplete="off">
+      <button type="submit">Søg</button>
+    </form>
+    <div id="searchResults"></div>
+  </div>
+</header>
+
+<div class="mobile-panel" id="mobilePanel">
+  <a href="index.html">Forside</a>
+  <a href="uddannelse.html">Uddannelse</a>
+  <a href="studiemiljoe.html">Studiemiljø</a>
+  <a href="karriere.html">Karriere + Muligheder</a>
+  <a href="praktisk-info.html">Praktisk info</a>
+  <a href="kontakt.html">Kontakt</a>
+  <a href="test.html" class="btn btn-primary">Tag Testen Her</a>
+</div>
+
+<main id="main">
+
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Brødkrumme">
+      <a href="index.html">Forside</a><span class="sep">/</span><span class="current">Er ECM noget for dig?</span>
+    </nav>
+  </div>
+
+  <section class="page-hero section-tight">
+    <div class="wrap" style="max-width:760px;">
+      <span class="eyebrow-tag"><span class="dot"></span>2 minutter · 8 spørgsmål</span>
+      <h1 class="h1" style="font-size:clamp(2rem,5vw,3.2rem);">Er ECM noget for dig?</h1>
+      <p class="lede">Svar ærligt — der er ingen rigtige eller forkerte svar. Testen giver dig en tilbagemelding på dine interesser og din måde at arbejde på, ikke et løfte om optagelse.</p>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap">
+      <div class="quiz-shell reveal" id="quizRoot">
+        <div class="quiz-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Fremgang i testen">
+          <div class="quiz-progress-bar" id="quizProgressBar"></div>
+        </div>
+        <p id="quizProgressLabel" class="sr-only" aria-live="polite"></p>
+
+        <form id="quizForm">
+          <div id="quizSteps"></div>
+        </form>
+
+        <div class="quiz-result" id="quizResult">
+          <p class="result-tag"></p>
+          <h2></h2>
+          <p class="desc"></p>
+          <div class="hero-actions">
+            <a href="uddannelse.html" class="btn btn-primary">Læs om uddannelsen</a>
+            <a href="https://www.optagelse.dk/" target="_blank" rel="noopener" class="btn btn-ghost">Søg ind ↗</a>
+          </div>
+          <button type="button" id="quizRestart" class="btn btn-ghost btn-sm" style="margin-top:18px;">Tag testen igen</button>
+          <p class="quiz-disclaimer">Testen er vejledende og baseret alene på dine svar om interesser og arbejdsform. Den er ikke en optagelsesprøve, og resultatet er hverken en vurdering af dine faglige forudsætninger eller en garanti for optagelse på uddannelsen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="wordmark" style="margin-bottom:14px;">
+          <strong>ECM</strong>
+          <span>E-commerce &amp; Digital Marketing</span>
+        </a>
+        <p style="color:var(--ink-soft); font-size:0.9rem; max-width:280px; margin-top:14px;">En fuldtidsuddannelse på Erhvervsakademi København for dig, der vil forstå og bygge digital forretning.</p>
+      </div>
+      <div>
+        <h5>Uddannelse</h5>
+        <a href="uddannelse.html">Uddannelsen</a>
+        <a href="studiemiljoe.html">Studiemiljø</a>
+        <a href="cases.html">Cases &amp; projekter</a>
+      </div>
+      <div>
+        <h5>Om os</h5>
+        <a href="moed-os.html">Mød os</a>
+        <a href="karriere.html">Karriere + Muligheder</a>
+        <a href="praktisk-info.html">Praktisk info</a>
+      </div>
+      <div>
+        <h5>Support</h5>
+        <a href="faq.html">FAQ</a>
+        <a href="kontakt.html">Kontakt</a>
+        <a href="test.html">Tag testen</a>
+      </div>
+      <div>
+        <h5>Ansøgning</h5>
+        <a href="https://www.optagelse.dk/" target="_blank" rel="noopener">Officiel ansøgning (optagelse.dk) ↗</a>
+        <a href="https://www.ek.dk/videregaaende-uddannelser/e-commerce-og-digital-marketing" target="_blank" rel="noopener">EK — ECM-uddannelsen ↗</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Erhvervsakademi København — Eksamensprojekt, ECM 1. interne eksamen</span>
+      <span>Indhold markeret med [ ] er pladsholdere og afventer officiel information</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/quiz.js"></script>
+</body>
+</html>
