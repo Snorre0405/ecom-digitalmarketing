@@ -1,0 +1,74 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","layout":{"type":"flow"}} -->
+<main class="wp-block-group" id="main">
+
+<!-- wp:group {"className":"wrap","layout":{"type":"constrained"}} -->
+<div class="wp-block-group wrap">
+	<!-- wp:paragraph {"className":"breadcrumb"} -->
+	<p class="breadcrumb"><a href="/">Forside</a><span class="sep">/</span><span class="current">Er ECM noget for dig?</span></p>
+	<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"tagName":"section","className":"page-hero section-tight","layout":{"type":"flow"}} -->
+<section class="wp-block-group page-hero section-tight">
+	<!-- wp:group {"className":"wrap","style":{"dimensions":{"maxWidth":"760px"}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group wrap" style="max-width:760px">
+		<!-- wp:paragraph {"className":"eyebrow-tag"} -->
+		<p class="eyebrow-tag">2 minutter · 8 spørgsmål</p>
+		<!-- /wp:paragraph -->
+		<!-- wp:heading {"level":1,"className":"h1","style":{"typography":{"fontSize":"clamp(2rem,5vw,3.2rem)"}}} -->
+		<h1 class="wp-block-heading h1" style="font-size:clamp(2rem,5vw,3.2rem)">Er ECM noget for dig?</h1>
+		<!-- /wp:heading -->
+		<!-- wp:paragraph {"className":"lede"} -->
+		<p class="lede">Svar ærligt — der er ingen rigtige eller forkerte svar. Testen giver dig en tilbagemelding på dine interesser og din måde at arbejde på, ikke et løfte om optagelse.</p>
+		<!-- /wp:paragraph -->
+	</div>
+	<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+
+<!-- wp:group {"tagName":"section","className":"section-tight","layout":{"type":"flow"}} -->
+<section class="wp-block-group section-tight">
+	<!-- wp:group {"className":"wrap","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group wrap">
+
+		<!-- wp:html -->
+		<div class="quiz-shell reveal" id="quizRoot">
+			<div class="quiz-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Fremgang i testen">
+				<div class="quiz-progress-bar" id="quizProgressBar"></div>
+			</div>
+			<p id="quizProgressLabel" class="sr-only" aria-live="polite"></p>
+
+			<form id="quizForm">
+				<div id="quizSteps"></div>
+			</form>
+
+			<div class="quiz-result" id="quizResult">
+				<p class="result-tag"></p>
+				<h2></h2>
+				<p class="desc"></p>
+				<div class="hero-actions">
+					<a href="/uddannelse/" class="btn btn-primary">Læs om uddannelsen</a>
+					<a href="https://www.optagelse.dk/" target="_blank" rel="noopener" class="btn btn-ghost">Søg ind ↗</a>
+				</div>
+				<button type="button" id="quizRestart" class="btn btn-ghost btn-sm" style="margin-top:18px;">Tag testen igen</button>
+				<p class="quiz-disclaimer">Testen er vejledende og baseret alene på dine svar om interesser og arbejdsform. Den er ikke en optagelsesprøve, og resultatet er hverken en vurdering af dine faglige forudsætninger eller en garanti for optagelse på uddannelsen.</p>
+			</div>
+		</div>
+		<!-- /wp:html -->
+
+		<!-- wp:paragraph {"className":"disclaimer","style":{"spacing":{"margin":{"top":"20px"}}}} -->
+		<p class="disclaimer" style="margin-top:20px">[Udviklernote: Selve spørgsmålene og resultatteksterne ligger i assets/js/quiz.js (variablerne QUESTIONS og RESULTS), ikke i denne side — så scoringslogikken kan holdes samlet. Redigér teksterne der, hvis I vil ændre testens indhold.]</p>
+		<!-- /wp:paragraph -->
+
+	</div>
+	<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
