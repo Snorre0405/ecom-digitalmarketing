@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Farvepalet — Style tile</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:   #BD8FEE;
+    --secondary: #B6DB00;
+    --accent:    #F6A564;
+    --dark:      #1A1A18;
+    --light:     #F4F1EA;
+  }
+  *{ box-sizing:border-box; margin:0; }
+  body{ background:var(--light); color:var(--dark); font-family:'Space Grotesk', sans-serif; padding:48px 16px; }
+  h1{ font-size:1.6rem; font-weight:600; max-width:1000px; margin:0 auto 28px; }
+  .palette{ display:grid; grid-template-columns:repeat(auto-fit, minmax(170px, 1fr)); gap:16px; max-width:1000px; margin:0 auto; }
+  .swatch{ border-radius:16px; overflow:hidden; background:#fff; border:1px solid rgba(26,26,24,0.12); }
+  .chip{ height:160px; }
+  .info{ padding:14px 16px 16px; }
+  .info h2{ font-size:1rem; font-weight:600; }
+  .info p{ font-family:'IBM Plex Mono', monospace; font-size:0.82rem; margin-top:4px; }
+</style>
+</head>
+<body>
+  <h1>Farvepalet</h1>
+  <div class="palette">
+    <div class="swatch"><div class="chip" style="background:var(--primary)"></div><div class="info"><h2>Primær</h2><p>#BD8FEE</p><p>RGB 189, 143, 238</p></div></div>
+    <div class="swatch"><div class="chip" style="background:var(--secondary)"></div><div class="info"><h2>Sekundær</h2><p>#B6DB00</p><p>RGB 182, 219, 0</p></div></div>
+    <div class="swatch"><div class="chip" style="background:var(--accent)"></div><div class="info"><h2>Accent</h2><p>#F6A564</p><p>RGB 246, 165, 100</p></div></div>
+    <div class="swatch"><div class="chip" style="background:var(--dark)"></div><div class="info"><h2>Mørk</h2><p>#1A1A18</p><p>RGB 26, 26, 24</p></div></div>
+    <div class="swatch"><div class="chip" style="background:var(--light); border-bottom:1px solid rgba(26,26,24,0.12)"></div><div class="info"><h2>Lys</h2><p>#F4F1EA</p><p>RGB 244, 241, 234</p></div></div>
+  </div>
+</body>
+</html>
